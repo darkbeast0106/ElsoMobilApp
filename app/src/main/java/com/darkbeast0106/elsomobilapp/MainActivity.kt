@@ -7,17 +7,18 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private var btnBevitel: Button? = null
-    private var etNev: EditText? = null
-    private var textHello: TextView? = null
+    private lateinit var btnBevitel: Button
+    private lateinit var etNev: EditText
+    private lateinit var textHello: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
-        btnBevitel!!.setOnClickListener {
-            val nev = etNev!!.text.toString()
+        btnBevitel.setOnClickListener {
+            val nev = etNev.text
             val koszones = "Hello $nev"
-            textHello!!.text = koszones
+            textHello.text = koszones
         }
     }
 
