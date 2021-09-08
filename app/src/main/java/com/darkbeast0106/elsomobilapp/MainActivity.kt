@@ -1,37 +1,29 @@
-package com.darkbeast0106.elsomobilapp;
+package com.darkbeast0106.elsomobilapp
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-public class MainActivity extends AppCompatActivity {
-    private Button btnBevitel;
-    private EditText etNev;
-    private TextView textHello;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        init();
-        btnBevitel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nev = etNev.getText().toString();
-                String koszones = "Hello "+nev;
-                textHello.setText(koszones);
-            }
-        });
+class MainActivity : AppCompatActivity() {
+    private var btnBevitel: Button? = null
+    private var etNev: EditText? = null
+    private var textHello: TextView? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        init()
+        btnBevitel!!.setOnClickListener {
+            val nev = etNev!!.text.toString()
+            val koszones = "Hello $nev"
+            textHello!!.text = koszones
+        }
     }
 
-    private void init(){
-        btnBevitel = findViewById(R.id.btn_bevitel);
-        etNev = findViewById(R.id.et_nev);
-        textHello = findViewById(R.id.text_hello);
+    private fun init() {
+        btnBevitel = findViewById(R.id.btn_bevitel)
+        etNev = findViewById(R.id.et_nev)
+        textHello = findViewById(R.id.text_hello)
     }
 }
